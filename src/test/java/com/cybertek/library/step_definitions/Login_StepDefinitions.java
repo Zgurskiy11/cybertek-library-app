@@ -1,5 +1,4 @@
 package com.cybertek.library.step_definitions;
-
 import com.cybertek.library.pages.LandingPage;
 import com.cybertek.library.pages.LibraryLoginPage;
 import com.cybertek.library.utilities.BrowserUtils;
@@ -62,6 +61,7 @@ public class Login_StepDefinitions {
     @When("click the sign in button")
     public void click_the_sign_in_button() {
         libraryLoginPage.clickSignInButton();
+        BrowserUtils.sleep(2);
     }
 
     @Then("there should be {int} users")
@@ -77,6 +77,7 @@ public class Login_StepDefinitions {
         libraryLoginPage.emailInput.sendKeys(string);
         libraryLoginPage.passwordInput.sendKeys(string2);
         libraryLoginPage.clickSignInButton();
+        BrowserUtils.sleep(2);
     }
 
 }

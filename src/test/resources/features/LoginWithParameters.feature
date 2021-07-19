@@ -12,7 +12,7 @@ Feature: Login with parameters
     When I enter username "librarian12@library"
     And I enter password 'AOYKYTMJ'
     And click the sign in button
-    Then there should be 5566 users
+    Then there should be 5568 users
     And dashboard should be displayed
 
   Scenario: Login as student 10
@@ -25,7 +25,7 @@ Feature: Login with parameters
   Scenario: Login as librarian same line
     Given I am on the login page
     When I login using "librarian12@library" and "AOYKYTMJ"
-    Then there should be 5566 users
+    Then there should be 5568 users
     Then dashboard should be displayed
 
   Scenario: Login as student same line

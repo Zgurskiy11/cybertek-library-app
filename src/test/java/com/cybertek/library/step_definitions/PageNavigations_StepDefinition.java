@@ -22,10 +22,12 @@ public class PageNavigations_StepDefinition {
 
     @When("I click on {string} link")
     public void i_click_on_link(String string) {
-        string = string.toLowerCase();
-        if (string.equals("users")) {
-           landingPage.usersLink.click(); //using method from Abstract class
-        }
+        String xpath = "//span[.='"+string+"']";
+        Driver.getDriver().findElement(By.xpath(xpath)).click();
+
+//        if (string.equals("users")) {
+//           landingPage.usersLink.click(); //using method from Abstract class
+//        }
     }
 
 
@@ -40,7 +42,7 @@ public class PageNavigations_StepDefinition {
     public void show_records_should_have_following_options(List<String> options) {
         Select select = new Select(landingPage.recordsDropdown);
         List<WebElement> showOptions = select.getOptions();
-        BrowserUtils.sleep(3);
+     //   BrowserUtils.sleep(3);
         int count = 0;
         for (WebElement showOption : showOptions) {
             for (String option : options) {
@@ -49,8 +51,25 @@ public class PageNavigations_StepDefinition {
                 }
             }
         }
-        System.out.println(count);
+
         int exp = options.size();
+        int actual = count;
+        Assert.assertEquals(exp,actual);
+        Driver.closeDriver();
+    }
+
+    @Then("table should have following column names:")
+    public void table_should_have_following_column_names(List<String> columns) {
+        int count = 0;
+        List<WebElement> actualColumns = landingPage.columnsNames;
+        for (String column : columns) {
+            for (WebElement actualColumn : actualColumns) {
+                if (actualColumn.getText().equals(column)){
+                    count++;
+                }
+            }
+        }
+        int exp = columns.size();
         int actual = count;
         Assert.assertEquals(exp,actual);
         Driver.closeDriver();
