@@ -1,6 +1,6 @@
 Feature: Login with different users
 
-  Scenario Outline: Verify user information
+  Scenario Outline: Verify user information <email>
     Given I am on the login page
     When I am login using "<email>" and "<password>"
     Then account holder name should be "<name>"
