@@ -30,9 +30,7 @@ public class Login_StepDefinitions {
 
     @When("I login as a librarian")
     public void i_login_as_a_librarian() {
-        libraryLoginPage.emailInput.sendKeys("librarian13@library");
-        libraryLoginPage.passwordInput.sendKeys("9rf6axdD");
-        libraryLoginPage.singInButton.click();
+        libraryLoginPage.login("librarian13@library","9rf6axdD");
     }
 
     @Then("dashboard should be displayed")
@@ -43,9 +41,6 @@ public class Login_StepDefinitions {
 
     @When("I login as a student")
     public void i_login_as_a_student() {
-//        libraryLoginPage.emailInput.sendKeys(ConfigurationReader.getProperty("student11Username"));
-//        libraryLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("student11Password"));
-//        libraryLoginPage.singInButton.click();
         libraryLoginPage.login(ConfigurationReader.getProperty("student11Username"),ConfigurationReader.getProperty("student11Password"));
     }
 
@@ -62,7 +57,6 @@ public class Login_StepDefinitions {
     @When("click the sign in button")
     public void click_the_sign_in_button() {
         libraryLoginPage.clickSignInButton();
-        BrowserUtils.sleep(2);
     }
 
     @Then("there should be {int} users")
@@ -75,10 +69,7 @@ public class Login_StepDefinitions {
 
     @When("I login using {string} and {string}")
     public void i_login_using_and(String string, String string2) {
-        libraryLoginPage.emailInput.sendKeys(string);
-        libraryLoginPage.passwordInput.sendKeys(string2);
+        libraryLoginPage.login(string,string2);
         libraryLoginPage.clickSignInButton();
-        BrowserUtils.sleep(2);
     }
-
 }

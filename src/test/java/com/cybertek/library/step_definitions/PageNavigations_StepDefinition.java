@@ -25,10 +25,6 @@ public class PageNavigations_StepDefinition {
     public void i_click_on_link(String string) {
         String xpath = "//span[.='" + string + "']";
         Driver.getDriver().findElement(By.xpath(xpath)).click();
-
-//        if (string.equals("users")) {
-//           landingPage.usersLink.click(); //using method from Abstract class
-//        }
     }
 
 
@@ -44,7 +40,6 @@ public class PageNavigations_StepDefinition {
     public void show_records_should_have_following_options(List<String> options) {
         Select select = new Select(landingPage.recordsDropdown);
         List<WebElement> showOptions = select.getOptions();
-        //   BrowserUtils.sleep(3);
         int count = 0;
         for (WebElement showOption : showOptions) {
             for (String option : options) {
@@ -90,6 +85,4 @@ public class PageNavigations_StepDefinition {
         Assert.assertEquals(expectedName, actualName);
         Driver.closeDriver();
     }
-
-
 }
