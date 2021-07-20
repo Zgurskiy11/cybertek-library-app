@@ -43,9 +43,10 @@ public class Login_StepDefinitions {
 
     @When("I login as a student")
     public void i_login_as_a_student() {
-        libraryLoginPage.emailInput.sendKeys(ConfigurationReader.getProperty("student11Username"));
-        libraryLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("student11Password"));
-        libraryLoginPage.singInButton.click();
+//        libraryLoginPage.emailInput.sendKeys(ConfigurationReader.getProperty("student11Username"));
+//        libraryLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("student11Password"));
+//        libraryLoginPage.singInButton.click();
+        libraryLoginPage.login(ConfigurationReader.getProperty("student11Username"),ConfigurationReader.getProperty("student11Password"));
     }
 
     @When("I enter username {string}")

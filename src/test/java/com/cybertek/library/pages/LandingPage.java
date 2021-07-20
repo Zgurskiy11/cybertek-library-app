@@ -21,5 +21,7 @@ public class LandingPage extends CommonElementsPage {
     @FindBy(xpath = "//table/thead/tr/th")
     public List<WebElement> columnsNames;
 
+    @FindBy(css = "a.nav-link.dropdown-toggle>span")
+    public WebElement accountHolderName;
 
 }

@@ -10,8 +10,11 @@ import org.junit.runner.RunWith;
         plugin = "html:target/cucumber-report.html",
         features ="src/test/resources/features",
         glue ="com/cybertek/library/step_definitions",
-        dryRun = false
-      //  tags = "@wip"
+        dryRun = false,
+         //  tags = "@wip"
+        tags = "@Librarians"
+        //tags = "@Students"
+
 
 )
 public class CukesRunner {

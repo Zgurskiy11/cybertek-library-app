@@ -29,5 +29,11 @@ public class LibraryLoginPage {
         LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
         libraryLoginPage.singInButton.click();
     }
+
+    public void login(String email, String password){
+        emailInput.sendKeys(email);
+        passwordInput.sendKeys(password);
+        clickSignInButton();
+    }
 }
 
